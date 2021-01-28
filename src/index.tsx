@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import RootApp from "./routes";
 import AppProvider from "./state";
 
 ReactDOM.render(
   <React.StrictMode>
     <AppProvider>
-      <App />
+      <RootApp />
     </AppProvider>
   </React.StrictMode>,
   document.getElementById("root")
