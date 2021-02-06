@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
-import { 
-    Avatar, 
-    Button, 
-    Input, 
-    Modal, 
-    ModalBody, 
-    ModalCloseButton, 
-    ModalContent, 
-    ModalFooter, 
-    ModalHeader, 
-    ModalOverlay, 
-    Text, 
+import {
+    Avatar,
+    Button,
+    Input,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
+    Stack,
+    Text,
     useDisclosure
 } from "@chakra-ui/react"
-
-// TODO: add Cancel button
-// TODO: bug - changing avatar auto save 
-// TODO: improve CSS
 
 const WelcomeModal: React.FC = () => {
     const maxAvatarId = 898;
@@ -27,20 +24,28 @@ const WelcomeModal: React.FC = () => {
     const [isNickNameEmpty, setIsNickNameEmpty] = useState(false);
 
     const handleOnSave = () => {
-        if(nickName === '') {
+        if (nickName === '') {
             setIsNickNameEmpty(true);
             return;
-        }else {
+        } else {
             setIsNickNameEmpty(false);
         }
 
         localStorage.setItem('nick_name', nickName);
         localStorage.setItem('avatar_id', avatarId.toString());
+        setAvatarId(1)
+        setNickName('');
         onClose();
     }
 
     const handleOnAvatarChange = () => {
-        setAvatarId(Math.floor(Math.random() * Math.floor(maxAvatarId-1)) +1);
+        setAvatarId(Math.floor(Math.random() * Math.floor(maxAvatarId - 1)) + 1);
+    }
+
+    const handleOnCancel = () => {
+        setAvatarId(1);
+        setNickName('');
+        onClose();
     }
 
     return (
@@ -53,31 +58,37 @@ const WelcomeModal: React.FC = () => {
                     <ModalHeader>Welcome</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <Input 
+                        <Input
                             onChange={e => setNickName(e.target.value)}
-                            placeholder="Nickname" 
+                            placeholder="Nickname"
                         />
                         {isNickNameEmpty && <Text fontSize="xs" color="tomato" >Please type a valid nick name</Text>}
                         <br />
                         <br />
-                                <Avatar 
-                                    name="Dan Abrahmov" 
-                                    bg="white"
-                                    borderColor="gray"
-                                    showBorder={true}
-                                    size="xl"
-                                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${avatarId}.png`} 
-                                />
-                                <Button 
-                                    colorScheme="teal" 
-                                    variant="ghost"
-                                    onClick={handleOnAvatarChange}>
-                                        Change Avatar
-                                </Button>
+                        <Avatar
+                            name="Dan Abrahmov"
+                            bg="white"
+                            borderColor="gray"
+                            showBorder={true}
+                            size="xl"
+                            ml={10}
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${avatarId}.png`}
+                        />
+                        <Button
+                            ml={8}
+                            mt={6}
+                            colorScheme="teal"
+                            size="lg"
+                            onClick={handleOnAvatarChange}>
+                            Change Avatar
+                        </Button>
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme="blue" mr={3} onClick={handleOnSave}>Send</Button>
+                        <Stack direction="row" spacing={4}>
+                            <Button colorScheme="pink" onClick={handleOnCancel}>Cancel</Button>
+                            <Button colorScheme="blue" onClick={handleOnSave}>Send</Button>
+                        </Stack>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
