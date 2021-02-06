@@ -1,14 +1,20 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Heading, Link, VStack } from "@chakra-ui/react";
+import { Link, VStack, Text, Flex } from "@chakra-ui/react";
 import { routes } from "routes/routing";
 import Layout from "components/Layout";
 
 const Game: React.FC = () => {
   return (
     <Layout>
-      <Heading as="h1" size="2xl" textAlign="center" my={8}>
-        Game
-      </Heading>
+      <Flex py={8}>
+        <Text size="2xl" color="orange.400" fontWeight="bold" mr={2}>
+          Tiempo restante:
+        </Text>
+
+        <Text size="2xl" color="white" fontWeight="bold">
+          90 segundos
+        </Text>
+      </Flex>
 
       <VStack spacing={4}>
         <Link as={RouterLink} to={routes.home} color="blue.700">
