@@ -1,5 +1,5 @@
 const config = {
-  initialColorMode: "dark",
+  initialColorMode: "ligth",
   useSystemColorMode: false,
 };
 

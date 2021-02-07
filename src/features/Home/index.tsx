@@ -7,7 +7,7 @@ import WelcomeModal from "./WelcomeModal";
 const Home: React.FC = () => {
   return (
     <Layout>
-      <Heading as="h1" size="2xl" textAlign="center" my={8}>
+      <Heading as="h1" size="2xl" textAlign="center" my={8} color="white">
         Home
       </Heading>
 

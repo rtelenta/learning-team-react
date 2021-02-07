@@ -6,7 +6,7 @@ import Layout from "components/Layout";
 const Ranking: React.FC = () => {
   return (
     <Layout>
-      <Heading as="h1" size="2xl" textAlign="center" my={8}>
+      <Heading as="h1" size="2xl" textAlign="center" my={8} color="white">
         Ranking
       </Heading>
 
