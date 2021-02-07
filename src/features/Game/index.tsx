@@ -47,7 +47,7 @@ type cardType = {
 };
 
 const Game: React.FC = () => {
-  const matchDurationInSeconds = 10;
+  const matchDurationInSeconds = 90;
   const [seconds, setSeconds] = useState<number>(matchDurationInSeconds);
   const [cards, setCards] = useState<cardType[]>([]);
   const timer = useRef<number | null>(null);
