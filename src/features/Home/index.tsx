@@ -1,5 +1,10 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Heading, Link, VStack } from "@chakra-ui/react";
+import { 
+  Heading,
+  Link,
+  VStack,
+  Text
+   } from "@chakra-ui/react";
 import { routes } from "routes/routing";
 import Layout from "components/Layout";
 

@@ -2,6 +2,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Heading, Link, VStack } from "@chakra-ui/react";
 import { routes } from "routes/routing";
 import Layout from "components/Layout";
+import Card from "components/Card";
 
 const Game: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const Game: React.FC = () => {
           Ranking
         </Link>
       </VStack>
+      <Card/>
     </Layout>
   );
 };
